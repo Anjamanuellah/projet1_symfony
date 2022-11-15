@@ -1,0 +1,23 @@
+
+{% extends 'base.html.twig' %}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('create') }}
+
+        {% endblock %}
+
+        {% block javascripts %}
+
+            {{ encore_entry_script_tags('create') }}
+            
+        {% endblock %}
+
+{% block title %}New Blog{% endblock %}
+
+{% block body %}
+
+    <h1>Create new Blog</h1>
+
+    {{ include('blog/_form.html.twig') }}
+
+    <a href="{{ path('app_blog_index') }}">back to list</a>
+{% endblock %}

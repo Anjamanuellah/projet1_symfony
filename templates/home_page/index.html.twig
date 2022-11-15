@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block titre %}bonjoour HomePageController!{% endblock %}
+
+{% block body %}
+
+<a href ="{{ path('blog_page') }}" >blog</a>
+<a href ="{{ path('profil_page') }}" >profil</a>
+
+    <div class="example-wrapper">
+        <h2>
+            bonjour, je suis {{ nom }}
+        </h2>
+        <p>j'ai {{ age }} ans</p>
+
+        {% set color = "black" %}
+    </div>
+
+
+{% endblock %}
+   
+{% block footer %}
+
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+	{{ encore_entry_link_tags('index') }}
+{% endblock %}
+
+{% block javascripts %}
+
+	{{ encore_entry_script_tags('index') }}
+
+{% endblock %}
+
+{% block title %}Blog index{% endblock %}
+
+{% block body %}
+    <body>
+		<h1>Blog index</h1>
+		<form>
+			<input type="text" name="description" id="text">
+			<input type="submit" value="rechercher">
+		</form>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Title</th>
+					<th>Description</th>
+					<th>Actions</th>
+					<th>User</th>
+
+				</tr>
+			</thead>
+
+			<tbody>
+
+				{% for blog in blogs %}
+
+					<tr>
+						<td>{{ blog.id }}
+						</td>
+						<td>{{ blog.title }}</td>
+						<td>{{ blog.description }}</td>
+						<td>
+							<a href="{{ path('app_blog_show', {'id': blog.id}) }}">show</a>
+							<a href="{{ path('app_blog_edit', {'id': blog.id}) }}">edit</a>
+						</td>
+						<td>
+							{{ blog.user ? blog.user.name:"" }}
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="4">no records found</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+		<a href="{{ path('app_blog_new') }}">Create new</a>
+    </body>
+{% endblock %}
+
